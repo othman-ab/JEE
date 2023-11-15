@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BanqueWS" targetNamespace="http://ws/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:9191/?xsd=1" namespace="http://ws/" />
+    </xsd:schema>
+  </types>
+  <message name="Convert">
+    <part name="parameters" element="tns:Convert" />
+  </message>
+  <message name="ConvertResponse">
+    <part name="parameters" element="tns:ConvertResponse" />
+  </message>
+  <message name="listCompte">
+    <part name="parameters" element="tns:listCompte" />
+  </message>
+  <message name="listCompteResponse">
+    <part name="parameters" element="tns:listCompteResponse" />
+  </message>
+  <message name="getCompte">
+    <part name="parameters" element="tns:getCompte" />
+  </message>
+  <message name="getCompteResponse">
+    <part name="parameters" element="tns:getCompteResponse" />
+  </message>
+  <portType name="BanqueService">
+    <operation name="Convert">
+      <input wsam:Action="http://ws/BanqueService/ConvertRequest" message="tns:Convert" />
+      <output wsam:Action="http://ws/BanqueService/ConvertResponse" message="tns:ConvertResponse" />
+    </operation>
+    <operation name="listCompte">
+      <input wsam:Action="http://ws/BanqueService/listCompteRequest" message="tns:listCompte" />
+      <output wsam:Action="http://ws/BanqueService/listCompteResponse" message="tns:listCompteResponse" />
+    </operation>
+    <operation name="getCompte">
+      <input wsam:Action="http://ws/BanqueService/getCompteRequest" message="tns:getCompte" />
+      <output wsam:Action="http://ws/BanqueService/getCompteResponse" message="tns:getCompteResponse" />
+    </operation>
+  </portType>
+  <binding name="BanqueServicePortBinding" type="tns:BanqueService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Convert">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listCompte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCompte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="BanqueWS">
+    <port name="BanqueServicePort" binding="tns:BanqueServicePortBinding">
+      <soap:address location="http://localhost:9191/" />
+    </port>
+  </service>
+</definitions>
